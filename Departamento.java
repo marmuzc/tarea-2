@@ -2,19 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Departamento implements Invitable {
-    private String nombre; // Debe estar fuera del bloque de inicialización
-    private List<Empleado> empleados; // Debe estar fuera del bloque de inicialización
+    private String nombre;
+    private List<Empleado> empleados;
 
     public Departamento(String nombre) {
         this.nombre = nombre;
-        this.empleados = new ArrayList<>(); // Inicializa la lista de empleados
+        this.empleados = new ArrayList<>();
     }
 
     public int obtenerCantidadEmpleados() {
         return empleados.size();
     }
 
-    public void añadirEmpleado(Empleado empleado) { // Cambié "añadirEmpleados" a "añadirEmpleado" para que sea más claro
+    public void añadirEmpleado(Empleado empleado) {
         empleados.add(empleado);
     }
 
@@ -28,10 +28,9 @@ public class Departamento implements Invitable {
 
     @Override
     public void invitar() {
-        // Lógica para invitar a todos los empleados del departamento
         System.out.println("Invitando a todos los empleados del departamento: " + nombre);
         for (Empleado empleado : empleados) {
-            empleado.invitar(); // Asumiendo que el método invitar() está implementado en Empleado
+            empleado.invitar();
         }
     }
 
