@@ -1,28 +1,52 @@
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Asistencia {
     private Empleado empleado;
     private boolean asistio;
-    private Retraso retraso; // Relaciona la clase Retraso
+    private Retraso retraso;
 
-    public Asistencia(Empleado empleado) {
+    private Instant horaInicio;
+    private Reunion reunion;
+    private List<Empleado> ausentes;
+    private List<Empleado> presentes;
+    private List<Retraso> retrasos;
+
+    public Asistencia(Empleado empleado, Reunion reunion, Instant horaInicio) {
         this.empleado = empleado;
-        this.asistio = false; // Inicialmente no ha asistido
-        this.retraso = null; // No tiene retraso inicialmente
+        this.reunion = reunion;
+        this.horaInicio = horaInicio;
+        this.asistio = false;
+        this.retraso = null;
+        this.ausentes = new ArrayList<>();
+        this.presentes = new ArrayList<>();
+        this.retrasos = new ArrayList<>();
     }
 
-    // Método para marcar la asistencia
-    public void marcarAsistencia(boolean asistio, boolean llegoTarde) {
+    public void marcarAsistencia(boolean asistio) {
         this.asistio = asistio;
-        if (asistio && llegoTarde) {
-            this.retraso = new Retraso(); // Crea un retraso si llega tarde
+        if (!asistio) {
+            ausentes.add(empleado);
         }
     }
 
-    public boolean siAsistio() {
-        return asistio;
+    public void addRetrasado(Retraso retraso) {
+        if (!retraso.equals(this.retraso)) {
+            this.retrasos.add(retraso); // Agregar el empleado a la lista de no asistidos
+            this.retraso = retraso; // Actualizar el último retraso
+        }
+    }
+    public List<Empleado> getAusentes() {
+        return ausentes; // Retornar la lista de ausentes
     }
 
-    public boolean tieneRetraso() {
-        return retraso != null;
+    public List<Empleado> getPresentes() {
+        return presentes; // Retornar la lista de presentes
+    }
+
+    public List<Retraso> getRetrasos() {
+        return retrasos; // Retornar la lista de retrasos
     }
 
     public Empleado getEmpleado() {
@@ -35,6 +59,7 @@ public class Asistencia {
                 "empleado=" + empleado.getNombre() +
                 ", asistio=" + asistio +
                 ", retraso=" + retraso +
+                ", noAsistidos=" + noAsistidos +
                 '}';
     }
 }
