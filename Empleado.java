@@ -3,8 +3,7 @@ public class Empleado implements Invitable {
     private String apellidos;
     private String nombre;
     private String correo;
-    private Departamento departamento;
-
+    
     public Empleado(String id, String apellidos, String nombre, String correo) {
         this.id = id;
         this.apellidos = apellidos;
@@ -13,8 +12,8 @@ public class Empleado implements Invitable {
     }
 
     @Override
-    public void invitar() {
-        System.out.println("Invitando a: " + nombre + " " + apellidos + " al evento");
+    public void invitar(Invitacion invitacion) {
+        System.out.println("Invitando a: " + nombre + " " + apellidos + " a la reunión con hora: " + invitacion.getHora());
     }
 
     public String getId() {
@@ -49,23 +48,13 @@ public class Empleado implements Invitable {
         this.correo = correo;
     }
 
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
-    }
-
     @Override
     public String toString() {
-        String departamentoNombre = (departamento != null) ? departamento.getNombre() : "Sin departamento";
         return "Empleado {" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", correo='" + correo + '\'' +
-                ", departamento=" + departamentoNombre +
                 '}';
     }
 }

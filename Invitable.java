@@ -1,4 +1,4 @@
 public interface Invitable {
 
-    public void invitar();
+    public void invitar(Invitacion invitacion);
 }
