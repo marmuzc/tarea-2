@@ -27,10 +27,10 @@ public class Departamento implements Invitable {
     }
 
     @Override
-    public void invitar() {
-        System.out.println("Invitando a todos los empleados del departamento: " + nombre);
+    public void invitar(Invitacion invitacion) {
+        System.out.println("Se invitó a todos los empleados del departamento " + nombre);
         for (Empleado empleado : empleados) {
-            empleado.invitar();
+            empleado.invitar(invitacion);
         }
     }
 
