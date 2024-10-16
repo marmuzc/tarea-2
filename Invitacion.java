@@ -1,8 +1,9 @@
 import java.time.Instant;
 
 public class Invitacion {
-    private Empleado empleado;
     private Instant hora; // Hora de la invitación
+    private Empleado empleado;
+
     private Asistencia asistencia; // Objeto de asistencia asociado
 
     public Invitacion(Empleado empleado) {

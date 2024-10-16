@@ -17,7 +17,7 @@ public class Asistencia {
         }
     }
 
-    public boolean isAsistio() {
+    public boolean siAsistio() {
         return asistio;
     }
 
@@ -34,7 +34,7 @@ public class Asistencia {
         return "Asistencia{" +
                 "empleado=" + empleado.getNombre() +
                 ", asistio=" + asistio +
-                ", retraso=" + (retraso != null ? "Sí" : "No") +
+                ", retraso=" + retraso +
                 '}';
     }
 }

@@ -13,9 +13,13 @@ abstract class Reunion {
     private Nota nota;
 
     protected List<Invitacion> Invitaciones;
+    private tipoReunion organizador;
+
     private List<Retraso> Retrasos;
 
-    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Invitacion Invitaciones) {
+    //cada reunión tiene una fecha, hora, duración prevista y lista de invitación (con sus
+    //horas). Cada reunión debe tener un organizador.
+    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Invitacion Invitaciones, tipoReunion organizador) {
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
         this.duracionPrevista = duracionPrevista;
@@ -23,7 +27,7 @@ abstract class Reunion {
         this.Retrasos = new ArrayList<>();
         this.Invitaciones.add(Invitaciones);
         this.nota = new Nota("Nota de la reunión");
-
+        this.organizador = organizador;
     }
 
     public Date getFecha() {
