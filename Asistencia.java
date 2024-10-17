@@ -3,54 +3,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Asistencia {
-    private Empleado empleado;
-    private boolean asistio;
+    private Instant horaInicio;
     private Retraso retraso;
 
-    private Instant horaInicio;
-    private Reunion reunion;
-    private List<Empleado> ausentes;
+    private List<Empleado> invitados;
     private List<Empleado> presentes;
-    private List<Retraso> retrasos;
+    private List<Empleado> retrasados;
 
-    public Asistencia(Empleado empleado, Reunion reunion, Instant horaInicio) {
-        this.empleado = empleado;
-        this.reunion = reunion;
+    private List<Instant> listaRetrasos;
+
+    public Asistencia(List<Empleado> empleados, Instant horaInicio) {
         this.horaInicio = horaInicio;
-        this.asistio = false;
-        this.retraso = null;
-        this.ausentes = new ArrayList<>();
+
+        this.invitados = new ArrayList<>();
         this.presentes = new ArrayList<>();
-        this.retrasos = new ArrayList<>();
-    }
-
-    public void marcarAsistencia(boolean asistio) {
-        this.asistio = asistio;
-        if (!asistio) {
-            ausentes.add(empleado);
+        this.listaRetrasos = new ArrayList<>();
+        this.retrasados = new ArrayList<>();
+        
+        for (Empleado empleado : empleados) { //Si el Empleado está invitado, se lo agrega a la lista de invitados
+            if (empleado.esInvitado()) {
+                invitados.add(empleado);
+            }
         }
     }
 
-    public void addRetrasado(Retraso retraso) {
-        if (!retraso.equals(this.retraso)) {
-            this.retrasos.add(retraso); // Agregar el empleado a la lista de no asistidos
-            this.retraso = retraso; // Actualizar el último retraso
+    public void marcarAsistencia(Empleado empleado) {
+        Instant horaLlegada = retraso.getHoraLlegada();
+
+        if (invitados.contains(empleado)) { //Si el Empleado está invitado, se marca como presente
+            presentes.add(empleado);
+            if (horaLlegada.isAfter(horaInicio)) { //Si el Empleado llego despues de la hora de inicio, se marca como retrasado
+                retrasados.add(empleado);
+                listaRetrasos.add(horaLlegada); //Se guarda la hora de llegada del Empleado retrasado
+            }
         }
-    }
-    public List<Empleado> getAusentes() {
-        return ausentes; // Retornar la lista de ausentes
     }
 
     public List<Empleado> getPresentes() {
         return presentes; // Retornar la lista de presentes
     }
 
-    public List<Retraso> getRetrasos() {
-        return retrasos; // Retornar la lista de retrasos
+    public List<Empleado> getRetrasados() {
+        return retrasados; //Retornar la lista de retrasados
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public List<Instant> getRetrasos() {
+        return listaRetrasos; // Retornar la lista con las horas de llegada de los retrasados
     }
 
     @Override

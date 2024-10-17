@@ -14,8 +14,12 @@ public class Departamento implements Invitable {
         return empleados.size();
     }
 
-    public void añadirEmpleado(Empleado empleado) {
+    public void addEmpleado(Empleado empleado) {
         empleados.add(empleado);
+    }
+    
+    public List<Empleado> getEmpleados() {
+        return empleados;
     }
 
     public String getNombre() {
