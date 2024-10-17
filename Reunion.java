@@ -10,24 +10,23 @@ abstract class Reunion {
     private Duration duracionPrevista;
     private Instant horarioInicio;
     private Instant horaFin;
+    protected List<Invitacion> invitaciones;
+
     private Nota nota;
 
-    protected List<Invitacion> Invitaciones;
-    private tipoReunion organizador;
+    protected List<Empleado> invitados;
+    protected Asistencia asistencia;
 
-    private List<Retraso> Retrasos;
 
     //cada reunión tiene una fecha, hora, duración prevista y lista de invitación (con sus
     //horas). Cada reunión debe tener un organizador.
-    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Invitacion Invitaciones, tipoReunion organizador) {
+    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista) {
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
         this.duracionPrevista = duracionPrevista;
-        this.Invitaciones = new ArrayList<>();
-        this.Retrasos = new ArrayList<>();
-        this.Invitaciones.add(Invitaciones);
-        this.nota = new Nota("Nota de la reunión");
-        this.organizador = organizador;
+
+        this.invitados = new ArrayList<>();
+        this.asistencia = new Asistencia(invitados, horaPrevista);
     }
 
     public Date getFecha() {
@@ -74,19 +73,18 @@ abstract class Reunion {
 
     public List<Empleado> obtenerAsistencias() {
         List<Empleado> asistentes = new ArrayList<>();
-        for (Invitacion invitacion : Invitaciones) {
-            if (invitacion.Asistio()) {
-                asistentes.add(invitacion.getEmpleado());
-            }
-        }
+        asistentes = asistencia.getPresentes();
         return asistentes;
     }
 
     public List<Empleado> obtenerAusencias() {
+        List<Empleado> asistentes = new ArrayList<>();
+        asistentes = asistencia.getPresentes();
+
         List<Empleado> ausentes = new ArrayList<>();
-        for (Invitacion invitacion : Invitaciones) {
-            if (!invitacion.Asistio()) {
-                ausentes.add(invitacion.getEmpleado());
+        for (Empleado empleado : invitados) {
+            if (!asistentes.contains(empleado)) {
+                ausentes.add(empleado);
             }
         }
         return ausentes;
@@ -94,20 +92,16 @@ abstract class Reunion {
 
     public List<Empleado> obtenerRetrasos() {
         List<Empleado> retrasados = new ArrayList<>();
-            for (Invitacion invitacion : Invitaciones) {
-            if (invitacion.Retrasado()) {
-                retrasados.add(invitacion.getEmpleado());
-            }
-        }
+        retrasados = asistencia.getRetrasados();
         return retrasados;
     }
 
     public int obtenerTotalAsistencia() {
-        return obtenerAsistencias().size();
+        return asistencia.getPresentes().size();
     }
 
     public float obtenerPorcentajeAsistencia() {
-        int totalInvitados = Invitaciones.size();
+        int totalInvitados = invitaciones.size(); //Arreglar esta parte al hacer lista de invitaciones
         if (totalInvitados == 0) {
             return 0.0f;
         }

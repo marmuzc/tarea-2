@@ -47,7 +47,7 @@ public class Asistencia {
         return retrasados; //Retornar la lista de retrasados
     }
 
-    public List<Instant> getRetrasos() {
+    public List<Instant> getHoraRetrasos() {
         return listaRetrasos; // Retornar la lista con las horas de llegada de los retrasados
     }
 
