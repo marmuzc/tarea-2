@@ -47,17 +47,19 @@ public class Asistencia {
         return retrasados; //Retornar la lista de retrasados
     }
 
-    public List<Instant> getRetrasos() {
+    public List<Instant> getHoraRetrasos() {
         return listaRetrasos; // Retornar la lista con las horas de llegada de los retrasados
     }
 
     @Override
     public String toString() {
         return "Asistencia{" +
-                "empleado=" + empleado.getNombre() +
-                ", asistio=" + asistio +
+                "horaInicio=" + horaInicio +
                 ", retraso=" + retraso +
-                ", noAsistidos=" + noAsistidos +
+                ", invitados=" + invitados +
+                ", presentes=" + presentes +
+                ", retrasados=" + retrasados +
+                ", listaRetrasos=" + listaRetrasos +
                 '}';
     }
 }
