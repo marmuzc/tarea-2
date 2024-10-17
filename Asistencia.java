@@ -55,11 +55,30 @@ public class Asistencia {
 
     @Override
     public String toString() {
+        String ausentesNombres = "";
+        for (int i = 0; i < ausentes.size(); i++) {
+            if (i > 0) {
+                ausentesNombres += ", ";
+            }
+            ausentesNombres += ausentes.get(i).getNombre();
+        }
+
+        String presentesNombres = "";
+        for (int i = 0; i < presentes.size(); i++) {
+            if (i > 0) {
+                presentesNombres += ", ";
+            }
+            presentesNombres += presentes.get(i).getNombre();
+        }
+
         return "Asistencia{" +
                 "empleado=" + empleado.getNombre() +
                 ", asistio=" + asistio +
-                ", retraso=" + retraso +
-                ", noAsistidos=" + noAsistidos +
+                ", retraso=" + (retraso != null ? retraso : "Ninguno") +
+                ", ausentes=[" + ausentesNombres + "]" +
+                ", presentes=[" + presentesNombres + "]" +
+                ", retrasos=" + retrasos +
                 '}';
     }
+
 }

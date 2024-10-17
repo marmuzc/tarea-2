@@ -3,19 +3,28 @@ public class Empleado implements Invitable {
     private String apellidos;
     private String nombre;
     private String correo;
+
+    //probando nuevo metodo de Asitencia
+    private boolean invitado;
     
     public Empleado(String id, String apellidos, String nombre, String correo) {
         this.id = id;
         this.apellidos = apellidos;
         this.nombre = nombre;
         this.correo = correo;
+        this.invitado = false; //En un inicio, el Empleado no está invitado
     }
 
     @Override
     public void invitar(Invitacion invitacion) {
+        this.invitado = true; //Si el Empleado recibe una invitación, este queda invitado
         System.out.println("Invitando a: " + nombre + " " + apellidos + " a la reunión con hora: " + invitacion.getHora());
     }
 
+    //Metodo para saber si el Empleado fue invitado
+    public boolean esInvitado() {
+        return invitado;
+    }
     public String getId() {
         return id;
     }
