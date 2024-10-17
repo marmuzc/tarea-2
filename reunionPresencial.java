@@ -2,10 +2,10 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 
-class ReunionPresencial extends Reunion {
+class reunionPresencial extends Reunion {
     private String sala;
 
-    public ReunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, String sala, Invitacion invitacion) {
+    public reunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, String sala, Invitacion invitacion) {
         super(fecha, horaPrevista, duracionPrevista, invitacion);
         this.sala = sala;
     }

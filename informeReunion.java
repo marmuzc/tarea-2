@@ -1,105 +1,50 @@
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-
+import java.util.List;
 
 public class informeReunion {
-    // Fecha y hora de la reunión
-    private Date fecha;
-    private Instant horaPrevista;
-    private Instant horarioInicio;
-    private Instant horaFin;
-    private Duration duracionPrevista;
+    private Reunion reunion; //pa obtener los datos de la reunion
 
-    // Lista de participantes y notas
-    private List<Empleado> participantes;
-    private List<Nota> notas;
-
-    // Constructor
-    public informeReunion(Date fecha, Instant horaPrevista, Instant horarioInicio, Instant horaFin, Duration duracionPrevista) {
-        this.fecha = fecha;
-        this.horaPrevista = horaPrevista;
-        this.horarioInicio = horarioInicio;
-        this.horaFin = horaFin;
-        this.duracionPrevista = duracionPrevista;
-        this.participantes = new ArrayList<>();
-        this.notas = new ArrayList<>();
+    public informeReunion(Reunion reunion) {
+        this.reunion = reunion;
     }
 
-    public void agregarParticipante(Empleado empleado) {
-        this.participantes.add(empleado);
-    }
-
-    public void agregarNota(Nota nota) {
-        this.notas.add(nota);
-    }
-
-    public Duration getDuracionReunion() {
-        if (horarioInicio != null && horaFin != null) {
-            return Duration.between(horarioInicio, horaFin);
-        }
-        return null;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public Instant getHoraPrevista() {
-        return horaPrevista;
-    }
-
-    public Instant getHorarioInicio() {
-        return horarioInicio;
-    }
-
-    public Instant getHoraFin() {
-        return horaFin;
-    }
-
-    public Duration getDuracionPrevista() {
-        return duracionPrevista;
-    }
-
-    public List<Empleado> getParticipantes() {
-        return participantes;
-    }
-
-    public List<Nota> getNotas() {
-        return notas;
-    }
-
-    public void generarInformeTxt(String nombreArchivo, String tipoReunion, String enlaceSala) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public void generarInformeTxt(String nombreArchivo, String enlaceSala) { //enlace sala porq no se como ver si es presencial o virtual
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); //formato de fecha y hora
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             writer.write("=== Informe de la Reunión ===\n");
-            writer.write("Fecha: " + fecha + "\n");
-            writer.write("Hora Prevista: " + horaPrevista + "\n");
-            writer.write("Hora de Inicio: " + (horarioInicio != null ? horarioInicio : "No iniciada") + "\n");
-            writer.write("Hora de Fin: " + (horaFin != null ? horaFin : "No finalizada") + "\n");
-            writer.write("Duración Total: " + (getDuracionReunion() != null ? getDuracionReunion().toMinutes() + " minutos" : "No disponible") + "\n");
-            writer.write("Duración Prevista: " + duracionPrevista.toMinutes() + " minutos\n");
-            writer.write("Tipo de Reunión: " + tipoReunion + "\n");
+            writer.write("Fecha: " + reunion.getFecha() + "\n");
+            writer.write("Hora Prevista: " + reunion.getHoraPrevista() + "\n");
+            writer.write("Hora de Inicio: " + (reunion.getHorarioInicio() != null ? reunion.getHorarioInicio() : "No iniciada") + "\n");
+            writer.write("Hora de Fin: " + (reunion.getHoraFin() != null ? reunion.getHoraFin() : "No finalizada") + "\n");
+            writer.write("Duración Total: " + (reunion.calcularTiempoReal() > 0 ? reunion.calcularTiempoReal() + " minutos" : "No disponible") + "\n");
+            writer.write("Duración Prevista: " + reunion.getDuracionPrevista().toMinutes() + " minutos\n");
+            writer.write("Porcentaje de Asistencia: " + reunion.obtenerPorcentajeAsistencia() + "%\n");
             writer.write("Enlace/Sala: " + enlaceSala + "\n");
 
-            // Agregar la lista de participantes
-            writer.write("\n=== Participantes ===\n");
-            for (Empleado participante : participantes) {
+            writer.write("\n=== Asistentes ===\n");
+            List<Empleado> asistentes = reunion.obtenerAsistencias();
+            for (Empleado participante : asistentes) {
                 writer.write(participante.toString() + "\n");
             }
 
-            // Agregar las notas
-            writer.write("\n=== Notas ===\n");
-            for (Nota nota : notas) {
-                writer.write(nota.toString() + "\n");
+            writer.write("\n=== Retrasados ===\n");
+            List<Empleado> retrasados = reunion.obtenerRetrasos();
+            for (Empleado retrasado : retrasados) {
+                writer.write(retrasado.toString() + "\n");
             }
+
+            writer.write("\n===  Ausentes ===\n");
+            List<Empleado> ausentes = reunion.obtenerAusencias();
+            for (Empleado ausente : ausentes) {
+                writer.write(ausente.toString() + "\n");
+            }
+
+            writer.write("\n=== Nota ===\n");
+            writer.write(reunion.getNota().toString() + "\n");
 
             System.out.println("Informe guardado en: " + nombreArchivo);
 
