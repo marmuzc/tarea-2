@@ -10,16 +10,16 @@ abstract class Reunion {
     private Duration duracionPrevista;
     private Instant horarioInicio;
     private Instant horaFin;
+
     private Nota nota;
-
+    private Empleado organizador;
     protected List<Invitacion> Invitaciones;
-    private tipoReunion organizador;
-
     private List<Retraso> Retrasos;
+    private List<Asistencia> asistencias;
 
     //cada reunión tiene una fecha, hora, duración prevista y lista de invitación (con sus
     //horas). Cada reunión debe tener un organizador.
-    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Invitacion Invitaciones, tipoReunion organizador) {
+    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Invitacion Invitaciones, Empleado organizador) {
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
         this.duracionPrevista = duracionPrevista;
@@ -28,6 +28,7 @@ abstract class Reunion {
         this.Invitaciones.add(Invitaciones);
         this.nota = new Nota("Nota de la reunión");
         this.organizador = organizador;
+        this.asistencias = new ArrayList<>();
     }
 
     public Date getFecha() {
@@ -72,39 +73,32 @@ abstract class Reunion {
         this.nota = nota;
     }
 
+    public Empleado getOrganizador(Empleado organizador){
+        return organizador;
+     }
+
+    public void setOrganizador(Empleado organizador){
+        this.organizador = organizador;
+    }
+
+
     public List<Empleado> obtenerAsistencias() {
-        List<Empleado> asistentes = new ArrayList<>();
-        for (Invitacion invitacion : Invitaciones) {
-            if (invitacion.Asistio()) {
-                asistentes.add(invitacion.getEmpleado());
-            }
-        }
-        return asistentes;
     }
 
     public List<Empleado> obtenerAusencias() {
-        List<Empleado> ausentes = new ArrayList<>();
-        for (Invitacion invitacion : Invitaciones) {
-            if (!invitacion.Asistio()) {
-                ausentes.add(invitacion.getEmpleado());
-            }
-        }
-        return ausentes;
+
     }
 
+
     public List<Empleado> obtenerRetrasos() {
-        List<Empleado> retrasados = new ArrayList<>();
-            for (Invitacion invitacion : Invitaciones) {
-            if (invitacion.Retrasado()) {
-                retrasados.add(invitacion.getEmpleado());
-            }
-        }
-        return retrasados;
+
     }
+
 
     public int obtenerTotalAsistencia() {
         return obtenerAsistencias().size();
     }
+
 
     public float obtenerPorcentajeAsistencia() {
         int totalInvitados = Invitaciones.size();
@@ -113,6 +107,7 @@ abstract class Reunion {
         }
         return (float) obtenerTotalAsistencia() / totalInvitados * 100;
     }
+
 
     public float calcularTiempoReal() {
         if (horarioInicio != null && horaFin != null) {
@@ -123,11 +118,13 @@ abstract class Reunion {
     }
 
     public void iniciar() {
-        this.horarioInicio = Instant.now();
+        this.horarioInicio = Instant.now(); //hacemos que la hora de inicio sea la hora actual
     }
 
     public void finalizar() {
-        this.horaFin = Instant.now();
+        this.horaFin = Instant.now(); //hacemos que la hora de fin sea la hora actual
+        //arreglar para que no se almacenen 3 mil segundos xD
+
     }
 
     @Override
