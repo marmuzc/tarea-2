@@ -25,6 +25,15 @@ public class Invitacion {
         }
     }
 
+    public int totalInvitaciones() { //prototipo creado
+        return invitados.size(); // El tamaño de la lista de invitados es el total de invitaciones enviadas
+    }
+
+    public List<Invitable> getInvitados() { //prototipo creado
+        return invitados;
+    }
+
+
     public boolean esInvitado(Empleado empleado) {
         return invitados.contains(empleado); //Devuelve un valor de verdad que indica si ese empleado está o no invitado
     }
@@ -41,7 +50,8 @@ public class Invitacion {
     @Override
     public String toString() {
         return "Invitacion{" +
-                ", hora=" + hora +
+                "hora=" + hora +
+                ", total de invitados=" + invitados.size() +
                 '}';
     }
 }
