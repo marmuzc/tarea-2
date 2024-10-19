@@ -181,8 +181,6 @@ abstract class Reunion {
                 ", notas=" + nota +
                 '}';
     }
-
-
 }
 
 
