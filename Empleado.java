@@ -3,7 +3,11 @@ public class Empleado implements Invitable {
     private String apellidos;
     private String nombre;
     private String correo;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
     public Empleado(String id, String apellidos, String nombre, String correo) {
         this.id = id;
         this.apellidos = apellidos;
@@ -11,6 +15,10 @@ public class Empleado implements Invitable {
         this.correo = correo;
     }
 
+<<<<<<< HEAD
+=======
+    //Getters y Setters de las propiedades
+>>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
     public String getId() {
         return id;
     }
@@ -42,6 +50,13 @@ public class Empleado implements Invitable {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+    //Implementacion de Invitable
+    @Override
+    public void invitar() {
+        System.out.println("Invitando a: " + nombre + " " + apellidos + " a la reunión");
+    }
+    
 
     @Override
     public void invitar(Invitacion invitacion) {

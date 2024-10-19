@@ -1,11 +1,7 @@
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Asistencia {
-    private Instant horaInicio;
-    private Retraso retraso;
+    private Empleado empleado; //Asociacion con Empleado
 
+<<<<<<< HEAD
     private List<Empleado> invitados;
     private List<Empleado> presentes;
     private List<Empleado> retrasados;
@@ -61,5 +57,14 @@ public class Asistencia {
                 ", retrasados=" + retrasados +
                 ", listaRetrasos=" + listaRetrasos +
                 '}';
+=======
+    public Asistencia(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    //Getter de empleado
+    public Empleado getEmpleado() {
+        return empleado;
+>>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
     }
 }

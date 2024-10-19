@@ -11,6 +11,7 @@ abstract class Reunion {
     private Instant horarioInicio;
     private Instant horaFin;
 
+<<<<<<< HEAD
     private Nota nota;
     private Empleado organizador;
     protected List<Invitacion> Invitaciones;
@@ -29,8 +30,96 @@ abstract class Reunion {
         this.nota = new Nota("Nota de la reunión");
         this.organizador = organizador;
         this.asistencias = new ArrayList<>();
+=======
+    protected Invitacion invitacion; //Invitación es parte de Reunión
+
+    private Nota nota;
+
+    protected List<Asistencia> listaAsistencias;
+
+
+    //cada reunión tiene una fecha, hora, duración prevista y lista de invitación (con sus
+    //horas). Cada reunión debe tener un organizador.
+    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista) {
+        this.fecha = fecha;
+        this.horaPrevista = horaPrevista;
+        this.duracionPrevista = duracionPrevista;
+
+        this.invitacion = new Invitacion(horaPrevista); //Composición, se crea invitación dentro de Reunion
+        this.listaAsistencias = new ArrayList<>();
+>>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
     }
 
+    public Nota getNota() {
+        return nota;
+    }
+    public void setNota(Nota nota) {
+        this.nota = nota;
+    }
+    
+    public void marcarAsistencia(Empleado empleado) {
+        if (invitacion.esInvitado(empleado)) {
+            Asistencia asistencia = new Asistencia(empleado);
+            listaAsistencias.add(asistencia);
+        }
+        else {
+            System.out.println("El empleado no está invitado.");
+        }
+    }
+
+    //Metodos Mencionados en UML
+    public List<Asistencia> obtenerAsistencias() {
+        return listaAsistencias;
+    }
+
+    public List<Empleado> obtenerAusencias() {
+        List<Empleado> asistentes = new ArrayList<>();
+        asistentes = asistencia.getPresentes();
+
+        List<Empleado> ausentes = new ArrayList<>();
+        for (Empleado empleado : invitados) {
+            if (!asistentes.contains(empleado)) {
+                ausentes.add(empleado);
+            }
+        }
+        return ausentes;
+    }
+
+    public List<Empleado> obtenerRetrasos() {
+        List<Empleado> retrasados = new ArrayList<>();
+        retrasados = asistencia.getRetrasados();
+        return retrasados;
+    }
+
+    public int obtenerTotalAsistencia() {
+        return asistencia.getPresentes().size();
+    }
+
+    public float obtenerPorcentajeAsistencia() {
+        int totalInvitados = invitaciones.size(); //Arreglar esta parte al hacer lista de invitaciones
+        if (totalInvitados == 0) {
+            return 0.0f;
+        }
+        return (float) obtenerTotalAsistencia() / totalInvitados * 100;
+    }
+
+    public float calcularTiempoReal() {
+        if (horarioInicio != null && horaFin != null) {
+            Duration duracionReal = Duration.between(horarioInicio, horaFin);
+            return duracionReal.toMinutes();
+        }
+        return 0.0f;
+    }
+
+    public void iniciar() {
+        this.horarioInicio = Instant.now();
+    }
+
+    public void finalizar() {
+        this.horaFin = Instant.now();
+    }
+    
+    //Getters y Setters de las propiedades
     public Date getFecha() {
         return fecha;
     }
@@ -65,6 +154,7 @@ abstract class Reunion {
     public void setHoraFin(Instant horaFin) {
         this.horaFin = horaFin;
     }
+<<<<<<< HEAD
 
     public Nota getNota() {
         return nota;
@@ -127,6 +217,9 @@ abstract class Reunion {
 
     }
 
+=======
+    
+>>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
     @Override
     public String toString() {
         return "Reunion{" +
