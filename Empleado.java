@@ -3,28 +3,15 @@ public class Empleado implements Invitable {
     private String apellidos;
     private String nombre;
     private String correo;
-
-    //probando nuevo metodo de Asitencia
-    private boolean invitado;
     
     public Empleado(String id, String apellidos, String nombre, String correo) {
         this.id = id;
         this.apellidos = apellidos;
         this.nombre = nombre;
         this.correo = correo;
-        this.invitado = false; //En un inicio, el Empleado no está invitado
     }
 
-    @Override
-    public void invitar(Invitacion invitacion) {
-        this.invitado = true; //Si el Empleado recibe una invitación, este queda invitado
-        System.out.println("Invitando a: " + nombre + " " + apellidos + " a la reunión con hora: " + invitacion.getHora());
-    }
-
-    //Metodo para saber si el Empleado fue invitado
-    public boolean esInvitado() {
-        return invitado;
-    }
+    //Getters y Setters de las propiedades
     public String getId() {
         return id;
     }
@@ -56,6 +43,13 @@ public class Empleado implements Invitable {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+    //Implementacion de Invitable
+    @Override
+    public void invitar() {
+        System.out.println("Invitando a: " + nombre + " " + apellidos + " a la reunión");
+    }
+    
 
     @Override
     public String toString() {
