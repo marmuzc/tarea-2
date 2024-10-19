@@ -17,9 +17,12 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2neuTqYnQvbIc9f48xS5DpE9rfW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,6 +31,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "test-unitarios",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ms_mc/Downloads/tarea-2",
     "onboarding.tips.debug.path": "C:/Users/ms_mc/Downloads/TAREA 2/TAREA-2/src/main/java/org/example/Main.java",
