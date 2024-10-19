@@ -4,10 +4,10 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 
-class reunionPresencial extends Reunion {
+class ReunionPresencial extends Reunion {
     private String sala;
 
-    public reunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, String sala) {
+    public ReunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, String sala) {
         super(fecha, horaPrevista, duracionPrevista);
         this.sala = sala;
     }
@@ -38,3 +38,4 @@ class reunionPresencial extends Reunion {
         return super.toString() + ", sala='" + sala + '\'';
     }
 }
+
