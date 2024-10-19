@@ -1,12 +1,21 @@
-public class Asistencia {
-    private Empleado empleado; //Asociacion con Empleado
+import java.time.Instant;
 
-    public Asistencia(Empleado empleado) {
+class Asistencia {
+    private Empleado empleado;
+    private Instant horaLlegada; //agregado para usar en retraso
+
+    public Asistencia(Empleado empleado, Instant horaLlegada) {
         this.empleado = empleado;
+        this.horaLlegada = horaLlegada;
     }
 
-    //Getter de empleado
     public Empleado getEmpleado() {
         return empleado;
     }
+
+    public Instant getHoraLlegada() {
+        return horaLlegada;
+    }
 }
+
+
