@@ -1,10 +1,11 @@
 import java.time.Instant;
 
-public class Retraso {
+public class Retraso extends Asistencia {
     private Instant horaLlegada;
 
-    public Retraso() {
-        this.horaLlegada = Instant.now(); // Marca la hora en que llegó tarde
+    public Retraso(Empleado empleado, Instant horaLlegada) {
+        super(empleado, horaLlegada);
+        this.horaLlegada = Instant.now(); //tomamos la hora actual como hora de llegada
     }
 
     public Instant getHoraLlegada() {
@@ -13,6 +14,9 @@ public class Retraso {
 
     @Override
     public String toString() {
-        return "Retraso{horaLlegada=" + horaLlegada + '}';
+        return "Retraso{" +
+                "empleado=" + getEmpleado().getNombre() +
+                ", horaLlegada=" + horaLlegada +
+                '}';
     }
 }

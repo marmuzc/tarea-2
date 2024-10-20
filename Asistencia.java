@@ -1,6 +1,6 @@
-public class Asistencia {
-    private Empleado empleado; //Asociacion con Empleado
+import java.time.Instant;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     private List<Empleado> invitados;
     private List<Empleado> presentes;
@@ -59,12 +59,29 @@ public class Asistencia {
                 '}';
 =======
     public Asistencia(Empleado empleado) {
+=======
+class Asistencia {
+    private Empleado empleado;
+    private Instant horaLlegada; //agregado para usar en retraso
+
+    public Asistencia(Empleado empleado, Instant horaLlegada) {
+>>>>>>> test-new-logic
         this.empleado = empleado;
+        this.horaLlegada = horaLlegada;
     }
 
-    //Getter de empleado
     public Empleado getEmpleado() {
         return empleado;
 >>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
     }
+<<<<<<< HEAD
 }
+=======
+
+    public Instant getHoraLlegada() {
+        return horaLlegada;
+    }
+}
+
+
+>>>>>>> test-new-logic

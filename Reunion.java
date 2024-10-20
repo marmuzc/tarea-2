@@ -36,6 +36,7 @@ abstract class Reunion {
     private Nota nota;
 
     protected List<Asistencia> listaAsistencias;
+    protected List<Retraso> listaRetrasos;
 
 
     //cada reunión tiene una fecha, hora, duración prevista y lista de invitación (con sus
@@ -47,7 +48,11 @@ abstract class Reunion {
 
         this.invitacion = new Invitacion(horaPrevista); //Composición, se crea invitación dentro de Reunion
         this.listaAsistencias = new ArrayList<>();
+<<<<<<< HEAD
 >>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
+=======
+        this.listaRetrasos = new ArrayList<>();
+>>>>>>> test-new-logic
     }
 
     public Nota getNota() {
@@ -56,16 +61,28 @@ abstract class Reunion {
     public void setNota(Nota nota) {
         this.nota = nota;
     }
-    
-    public void marcarAsistencia(Empleado empleado) {
+
+    public void marcarAsistencia(Empleado empleado, Instant horaLlegada) {
         if (invitacion.esInvitado(empleado)) {
-            Asistencia asistencia = new Asistencia(empleado);
-            listaAsistencias.add(asistencia);
-        }
-        else {
+            if (horarioInicio != null) {  // Aseguramos que la reunión ya haya comenzado
+                if (horaLlegada.isAfter(horarioInicio)) {
+                    // Si el empleado llega después de la hora de inicio, se considera retraso
+                    Retraso retraso = new Retraso(empleado, horaLlegada);
+                    listaRetrasos.add(retraso);
+                    listaAsistencias.add(retraso);
+                } else if (horaLlegada.equals(horarioInicio) || horaLlegada.isBefore(horarioInicio)) { //si la hora de llegada es igual o antes de la hora de inicio
+                    // el empleado llega a tiempo o antes de la hora de inicio, se considera asistencia
+                    Asistencia asistencia = new Asistencia(empleado, horaLlegada);
+                    listaAsistencias.add(asistencia);
+                }
+            } else {
+                System.out.println("La reunión aún no ha comenzado.");
+            }
+        } else {
             System.out.println("El empleado no está invitado.");
         }
     }
+
 
     //Metodos Mencionados en UML
     public List<Asistencia> obtenerAsistencias() {
@@ -73,43 +90,60 @@ abstract class Reunion {
     }
 
     public List<Empleado> obtenerAusencias() {
-        List<Empleado> asistentes = new ArrayList<>();
-        asistentes = asistencia.getPresentes();
-
         List<Empleado> ausentes = new ArrayList<>();
-        for (Empleado empleado : invitados) {
-            if (!asistentes.contains(empleado)) {
+        for (Invitable invitado : invitacion.getInvitados()) {
+            Empleado empleado = (Empleado) invitado; // Suponemos que todos los Invitable son instancias de Empleado
+            boolean asistio = false;
+            // Verificamos si este invitado está en la lista de asistencias
+            for (Asistencia asistencia : listaAsistencias) {
+                if (asistencia.getEmpleado().equals(empleado)) {
+                    asistio = true; // Si el empleado asistió, dejamos de buscar
+                    break;
+                }
+            }
+            // Verificamos si el empleado está en la lista de retrasos
+            if (!asistio) {
+                for (Retraso retraso : listaRetrasos) {
+                    if (retraso.getEmpleado().equals(empleado)) {
+                        asistio = true; // Si el empleado asistió, dejamos de buscar
+                        break;
+                    }
+                }
+            }
+            if (!asistio) {
                 ausentes.add(empleado);
             }
         }
-        return ausentes;
+        return ausentes;  // Devolvemos la lista de ausentes
     }
 
-    public List<Empleado> obtenerRetrasos() {
-        List<Empleado> retrasados = new ArrayList<>();
-        retrasados = asistencia.getRetrasados();
-        return retrasados;
+
+    public List<Retraso> obtenerRetrasos() {
+        return listaRetrasos;
     }
+
 
     public int obtenerTotalAsistencia() {
-        return asistencia.getPresentes().size();
+        return listaAsistencias.size();
     }
 
     public float obtenerPorcentajeAsistencia() {
-        int totalInvitados = invitaciones.size(); //Arreglar esta parte al hacer lista de invitaciones
+        int totalInvitados = invitacion.totalInvitaciones();; //Arreglar esta parte al hacer lista de invitaciones
         if (totalInvitados == 0) {
             return 0.0f;
         }
         return (float) obtenerTotalAsistencia() / totalInvitados * 100;
     }
 
-    public float calcularTiempoReal() {
-        if (horarioInicio != null && horaFin != null) {
-            Duration duracionReal = Duration.between(horarioInicio, horaFin);
-            return duracionReal.toMinutes();
+
+    public float calcularTiempoReal() { // Calcular la duración real de la reunión, aun no se si esta bien
+        if (getHoraFin() != null && getHorarioInicio() != null) {
+            Duration duration = Duration.between(getHorarioInicio(), getHoraFin());
+            return (float) duration.toMinutes(); // Convertir la duración a minutos
         }
-        return 0.0f;
+        return 0;
     }
+
 
     public void iniciar() {
         this.horarioInicio = Instant.now();
@@ -118,7 +152,7 @@ abstract class Reunion {
     public void finalizar() {
         this.horaFin = Instant.now();
     }
-    
+
     //Getters y Setters de las propiedades
     public Date getFecha() {
         return fecha;
@@ -154,6 +188,7 @@ abstract class Reunion {
     public void setHoraFin(Instant horaFin) {
         this.horaFin = horaFin;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     public Nota getNota() {
@@ -220,6 +255,9 @@ abstract class Reunion {
 =======
     
 >>>>>>> b9745ac9159419f66b7e4b6dea423abf34b0a614
+=======
+
+>>>>>>> test-new-logic
     @Override
     public String toString() {
         return "Reunion{" +
@@ -232,10 +270,10 @@ abstract class Reunion {
                 ", total de ausencias=" + obtenerAusencias().size() +
                 ", total de retrasos=" + obtenerRetrasos().size() +
                 ", porcentaje de asistencia=" + obtenerPorcentajeAsistencia() + "%" +
-                ", duracion real=" + calcularTiempoReal() + " minutos" +
-                "notas" + nota +
+                ", duracion real=" + calcularTiempoReal() + " minutos" +  // Mostramos la duración en minutos
+                ", notas=" + nota +
                 '}';
     }
-
 }
+
 
