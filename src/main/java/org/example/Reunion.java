@@ -16,6 +16,9 @@ abstract class Reunion {
     protected Invitacion invitacion; //Invitación es parte de Reunión
 
     private Nota nota;
+    private tipoReunion tipoReunion;
+    private Empleado organizador;
+
 
     protected List<Asistencia> listaAsistencias;
     protected List<Retraso> listaRetrasos;
@@ -23,15 +26,28 @@ abstract class Reunion {
 
     //cada reunión tiene una fecha, hora, duración prevista y lista de invitación (con sus
     //horas). Cada reunión debe tener un organizador.
-    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista) {
+    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Empleado organizador) {
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
         this.duracionPrevista = duracionPrevista;
-
+        this.organizador = organizador;
         this.invitacion = new Invitacion(horaPrevista); //Composición, se crea invitación dentro de Reunion
         this.listaAsistencias = new ArrayList<>();
         this.listaRetrasos = new ArrayList<>();
+
     }
+
+    public tipoReunion getTipo() {
+        return tipoReunion;
+    }
+    public void setTipo(tipoReunion tipoReunion) {
+        this.tipoReunion = tipoReunion;
+    }
+
+    public Empleado getOrganizador() {
+        return organizador;
+    }
+
 
     public Nota getNota() {
         return nota;
@@ -175,6 +191,8 @@ abstract class Reunion {
                 ", duracionPrevista=" + duracionPrevista.toMinutes() + " minutos" +
                 ", horarioInicio=" + horarioInicio +
                 ", horaFin=" + horaFin +
+                ", organizador=" + organizador +
+                ", tipoReunion=" + tipoReunion +
                 ", total de asistencias=" + obtenerTotalAsistencia() +
                 ", total de ausencias=" + obtenerAusencias().size() +
                 ", total de retrasos=" + obtenerRetrasos().size() +

@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b57d57-01cd-41c5-ab4c-fcb71ace2a60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/InformeReunion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ReunionVirtual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/DepartamentoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/EmpleadoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitableTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitacionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/NotaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/RetrasoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InformeReunion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InformeReunion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Reunion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Reunion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ReunionPresencial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ReunionPresencial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/informeReunion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/reunionVirtual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ReunionVirtual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ReunionVirtual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AsistenciaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AsistenciaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -38,7 +46,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.AsistenciaTest.executor": "Run",
+    "JUnit.DepartamentoTest.executor": "Run",
+    "JUnit.InformeReunionPresencialTest.executor": "Run",
+    "JUnit.InformeReunionTest.executor": "Run",
+    "JUnit.InformeReunionVirtualTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "test-unitarios",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ms_mc/Downloads/tarea-2",
@@ -48,6 +64,17 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

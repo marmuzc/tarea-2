@@ -6,10 +6,14 @@ import java.util.Date;
 
 class ReunionPresencial extends Reunion {
     private String sala;
+    private Empleado organizador;
+    private tipoReunion tipoReunion;
 
-    public ReunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, String sala) {
-        super(fecha, horaPrevista, duracionPrevista);
+    public ReunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista, tipoReunion tipoReunion, String sala, Empleado organizador) {
+        super(fecha, horaPrevista, duracionPrevista, organizador); // Pasamos el tipo de reunión a la clase padre
         this.sala = sala;
+        this.organizador = organizador;
+        this.tipoReunion = tipoReunion;
     }
 
     public String getSala() {
@@ -34,8 +38,11 @@ class ReunionPresencial extends Reunion {
 
     @Override
     public String toString() {
-        // Llamamos al toString() de la clase padre y agregamos la información adicional de la sala
-        return super.toString() + ", sala='" + sala + '\'';
+        // Llamamos al toString() de la clase padre y agregamos la información adicional
+        return super.toString() +
+                ", enlace='" + sala + '\'' +
+                ", organizador=" + organizador.getNombre() +
+                ", tipoReunion=" + getTipo(); // Usar el método getter para obtener el tipo
     }
-}
 
+}

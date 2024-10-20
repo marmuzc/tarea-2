@@ -22,6 +22,8 @@ public class InformeReunion {
             writer.write("Hora Prevista: " + reunion.getHoraPrevista()); // Formatear la hora prevista
             writer.write("Hora de Inicio: " + (reunion.getHorarioInicio() != null ? reunion.getHorarioInicio() : "No iniciada") + "\n"); // Formatear la hora de inicio
             writer.write("Hora de Fin: " + (reunion.getHoraFin() != null ? reunion.getHoraFin() : "No finalizada") + "\n"); // Formatear la hora de fin
+            writer.write("Tipo de Reunión: " + reunion.getTipo() + "\n");
+            writer.write("Organizador: " + reunion.getOrganizador().toString() + "\n");
             writer.write("Duración Total: " + (reunion.calcularTiempoReal() > 0 ? reunion.calcularTiempoReal() + " minutos" : "No disponible") + "\n");
             writer.write("Duración Prevista: " + reunion.getDuracionPrevista().toMinutes() + " minutos\n");
             writer.write("Porcentaje de Asistencia: " + reunion.obtenerPorcentajeAsistencia() + "%\n");
@@ -51,7 +53,13 @@ public class InformeReunion {
 
             System.out.println("Informe guardado en: " + nombreArchivo);
 
-        } catch (IOException e) {
+            if (nombreArchivo == null || nombreArchivo.isEmpty()) {
+                System.err.println("El nombre del archivo no puede estar vacío.");
+                return;
+            }
+        }
+
+        catch (IOException e) {
             System.err.println("Error al guardar el archivo: " + e.getMessage());
         }
     }

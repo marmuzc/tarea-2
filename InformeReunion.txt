@@ -1,0 +1,28 @@
+=== Informe de la Reunión ===
+Fecha: Sun Oct 20 10:26:44 CLST 2024Hora Prevista: 2024-10-20T14:26:44.322993300ZHora de Inicio: 2024-10-20T13:26:44.330913100Z
+Hora de Fin: 2024-10-20T13:26:44.341892600Z
+Tipo de Reunión: null
+Organizador: Empleado {id='120', nombre='Juan', apellidos='Perez', correo='@gmail.com'}
+Duración Total: No disponible
+Duración Prevista: 120 minutos
+Porcentaje de Asistencia: 66.66667%
+Enlace/Sala: https://meet.google.com/abc-xyz
+Notas: No hay notas disponibles
+
+=== Asistentes ===
+Empleado {id='121', nombre='Ana', apellidos='Wato', correo='anawato@gmail.com'}
+Empleado {id='122', nombre='Carlos', apellidos='Sds', correo='carlos@gmail.com'}
+Empleado {id='123', nombre='Luisa', apellidos='Dsd', correo='luisa@gmail.com'}
+Empleado {id='124', nombre='David', apellidos='Tav', correo='david@gmail.com'}
+
+=== Retrasados ===
+Empleado {id='121', nombre='Ana', apellidos='Wato', correo='anawato@gmail.com'}
+Empleado {id='122', nombre='Carlos', apellidos='Sds', correo='carlos@gmail.com'}
+Empleado {id='123', nombre='Luisa', apellidos='Dsd', correo='luisa@gmail.com'}
+
+=== Ausentes ===
+Empleado {id='125', nombre='Laura', apellidos='Fer', correo='laura@gmail.com'}
+Empleado {id='126', nombre='Tobi', apellidos='Tobi', correo='tobi@gmail.com'}
+
+=== Nota ===
+No hay notas disponibles
