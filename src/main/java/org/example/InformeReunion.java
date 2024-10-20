@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+
 public class InformeReunion {
     private Reunion reunion; // Para obtener los datos de la reunión
 
@@ -14,12 +15,21 @@ public class InformeReunion {
     }
 
     public void generarInformeTxt(String nombreArchivo, String enlaceSala) { // enlaceSala por si es presencial o virtual
+        if (nombreArchivo == null || nombreArchivo.isEmpty()) {
+            System.err.println("El nombre del archivo no puede estar vacío.");
+            return;
+        }
+
+        if (enlaceSala == null) {
+            enlaceSala = "No disponible";
+        }
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Formato de fecha y hora
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             writer.write("=== Informe de la Reunión ===\n");
-            writer.write("Fecha: " + reunion.getFecha()); // Formatear la fecha
-            writer.write("Hora Prevista: " + reunion.getHoraPrevista()); // Formatear la hora prevista
+            writer.write("Fecha: " + reunion.getFecha() + "\n"); // Formatear la fecha
+            writer.write("Hora Prevista: " + reunion.getHoraPrevista() + "\n"); // Formatear la hora prevista
             writer.write("Hora de Inicio: " + (reunion.getHorarioInicio() != null ? reunion.getHorarioInicio() : "No iniciada") + "\n"); // Formatear la hora de inicio
             writer.write("Hora de Fin: " + (reunion.getHoraFin() != null ? reunion.getHoraFin() : "No finalizada") + "\n"); // Formatear la hora de fin
             writer.write("Tipo de Reunión: " + reunion.getTipo() + "\n");
@@ -53,13 +63,7 @@ public class InformeReunion {
 
             System.out.println("Informe guardado en: " + nombreArchivo);
 
-            if (nombreArchivo == null || nombreArchivo.isEmpty()) {
-                System.err.println("El nombre del archivo no puede estar vacío.");
-                return;
-            }
-        }
-
-        catch (IOException e) {
+        } catch (IOException e) {
             System.err.println("Error al guardar el archivo: " + e.getMessage());
         }
     }
