@@ -14,24 +14,25 @@ public class InformeReunion {
         this.reunion = reunion;
     }
 
-    public void generarInformeTxt(String nombreArchivo, String enlaceSala) { // enlaceSala por si es presencial o virtual
+    public void generarInformeTxt(String nombreArchivo, String enlaceSala) {
+        // Validar si el nombre del archivo es nulo o vacío antes de hacer cualquier cosa
         if (nombreArchivo == null || nombreArchivo.isEmpty()) {
-            System.err.println("El nombre del archivo no puede estar vacío.");
-            return;
+            throw new IllegalArgumentException("El nombre del archivo no puede estar vacío.");
         }
 
+        // Asignar un valor por defecto si el enlace o sala es nulo
         if (enlaceSala == null) {
-            enlaceSala = "No disponible";
+            enlaceSala = "No asignado";
         }
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Formato de fecha y hora
-
+        // Mover la creación del archivo al bloque try-catch, después de la validación
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
+            // Escribir el contenido del informe
             writer.write("=== Informe de la Reunión ===\n");
-            writer.write("Fecha: " + reunion.getFecha() + "\n"); // Formatear la fecha
-            writer.write("Hora Prevista: " + reunion.getHoraPrevista() + "\n"); // Formatear la hora prevista
-            writer.write("Hora de Inicio: " + (reunion.getHorarioInicio() != null ? reunion.getHorarioInicio() : "No iniciada") + "\n"); // Formatear la hora de inicio
-            writer.write("Hora de Fin: " + (reunion.getHoraFin() != null ? reunion.getHoraFin() : "No finalizada") + "\n"); // Formatear la hora de fin
+            writer.write("Fecha: " + reunion.getFecha() + "\n");
+            writer.write("Hora Prevista: " + reunion.getHoraPrevista() + "\n");
+            writer.write("Hora de Inicio: " + (reunion.getHorarioInicio() != null ? reunion.getHorarioInicio() : "No iniciada") + "\n");
+            writer.write("Hora de Fin: " + (reunion.getHoraFin() != null ? reunion.getHoraFin() : "No finalizada") + "\n");
             writer.write("Tipo de Reunión: " + reunion.getTipo() + "\n");
             writer.write("Organizador: " + reunion.getOrganizador().toString() + "\n");
             writer.write("Duración Total: " + (reunion.calcularTiempoReal() > 0 ? reunion.calcularTiempoReal() + " minutos" : "No disponible") + "\n");
@@ -40,26 +41,30 @@ public class InformeReunion {
             writer.write("Enlace/Sala: " + enlaceSala + "\n");
             writer.write("Notas: " + (reunion.getNota() != null ? reunion.getNota() : "No hay notas disponibles") + "\n");
 
+            // Asistentes
             writer.write("\n=== Asistentes ===\n");
-            List<Asistencia> asistentes = reunion.obtenerAsistencias(); // Asumiendo que devuelve una lista de Asistencia
+            List<Asistencia> asistentes = reunion.obtenerAsistencias();
             for (Asistencia asistencia : asistentes) {
-                writer.write(asistencia.getEmpleado().toString() + "\n"); // Obtener el empleado de la asistencia
+                writer.write(asistencia.getEmpleado().toString() + "\n");
             }
 
+            // Retrasados
             writer.write("\n=== Retrasados ===\n");
-            List<Retraso> retrasados = reunion.obtenerRetrasos(); // Asumiendo que devuelve una lista de Retraso
+            List<Retraso> retrasados = reunion.obtenerRetrasos();
             for (Retraso retraso : retrasados) {
-                writer.write(retraso.getEmpleado().toString() + "\n"); // Obtener el empleado de la lista de retrasados
+                writer.write(retraso.getEmpleado().toString() + "\n");
             }
 
+            // Ausentes
             writer.write("\n=== Ausentes ===\n");
-            List<Empleado> ausentes = reunion.obtenerAusencias(); // Obtener los ausentes
+            List<Empleado> ausentes = reunion.obtenerAusencias();
             for (Empleado ausente : ausentes) {
-                writer.write(ausente.toString() + "\n"); // Imprimir ausente
+                writer.write(ausente.toString() + "\n");
             }
 
+            // Nota
             writer.write("\n=== Nota ===\n");
-            writer.write(reunion.getNota() != null ? reunion.getNota().toString() : "No hay notas disponibles\n"); // Verificar si hay nota
+            writer.write(reunion.getNota() != null ? reunion.getNota().toString() : "No hay notas disponibles\n");
 
             System.out.println("Informe guardado en: " + nombreArchivo);
 
