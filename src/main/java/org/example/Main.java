@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Main {
                 setHorarioInicio(Instant.now()); // Se marca la hora de inicio
 
                 // Formatear y mostrar la hora de inicio
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
                 String horarioInicioFormatted = LocalDateTime.ofInstant(getHorarioInicio(), ZoneId.systemDefault()).format(formatter);
                 System.out.println("Reunión iniciada a las: " + horarioInicioFormatted);
             }
@@ -32,7 +33,7 @@ public class Main {
                 setHoraFin(getHorarioInicio().plus(Duration.ofMinutes(5)));
 
                 // Formatear y mostrar la hora de fin
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd");
                 String horarioFinFormatted = LocalDateTime.ofInstant(getHoraFin(), ZoneId.systemDefault()).format(formatter);
                 System.out.println("Reunión finalizada a las: " + horarioFinFormatted);
             }
@@ -80,15 +81,27 @@ public class Main {
         reunion.finalizar();
         System.out.println("La reunión ha finalizado.");
 
+        InformeReunion informeReunion = new InformeReunion(reunion);
+
         // Imprimir la información de la reunión
         System.out.println("\nInformación de la reunión:");
-        System.out.println(reunion.toString());
+        System.out.println(informeReunion.toString());
+        informeReunion.generarInformeTxt("informe", "noAplica");
 
         // Obtener y mostrar las asistencias
         List<Asistencia> asistencias = reunion.obtenerAsistencias();
         System.out.println("\nAsistencias registradas:");
         for (Asistencia asistencia : asistencias) {
-            System.out.println("Empleado: " + asistencia.getEmpleado().getNombre() + " - Hora de llegada: " + asistencia.getHoraLlegada());
+            Instant hora = asistencia.getHoraLlegada();
+        
+            // Convertir Instant a ZonedDateTime en una zona horaria específica
+            ZonedDateTime horaAjustada = hora.atZone(ZoneId.systemDefault());
+            
+            // Formatear para mostrar la hora, el día, el mes y el año
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
+            String horaFormateada = horaAjustada.format(formatter);
+
+            System.out.println("Empleado: " + asistencia.getEmpleado().getNombre() + " - Hora de llegada: " + horaFormateada);
         }
 
         // Obtener y mostrar las ausencias
@@ -102,7 +115,15 @@ public class Main {
         List<Retraso> retrasos = reunion.obtenerRetrasos();
         System.out.println("\nRetrasos registrados:");
         for (Retraso retraso : retrasos) {
-            System.out.println("Empleado: " + retraso.getEmpleado().getNombre() + " - Hora de llegada: " + retraso.getHoraLlegada());
+            Instant hora = retraso.getHoraLlegada();
+        
+            // Convertir Instant a ZonedDateTime en una zona horaria específica
+            ZonedDateTime horaAjustada = hora.atZone(ZoneId.systemDefault());
+            
+            // Formatear para mostrar la hora, el día, el mes y el año
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
+            String horaFormateada = horaAjustada.format(formatter);
+            System.out.println("Empleado: " + retraso.getEmpleado().getNombre() + " - Hora de llegada: " + horaFormateada);
         }
 
         // Mostrar el porcentaje de asistencia
