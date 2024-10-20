@@ -47,9 +47,17 @@ public class Main {
         Empleado empleado5 = new Empleado("125", "Fer", "Laura", "laura@gmail.com");   // Ausente
         Empleado empleado6 = new Empleado("126", "tobi", "tobi", "tobi@gmail.com");   // Ausente
 
+        // Crear un departamento
+        Departamento departamento = new Departamento("MARKETING");
+
+        // Agregar empleados a un departamento
+        departamento.addEmpleados(empleado1);
+        departamento.addEmpleados(empleado2);
+
+        // Agregar el departamento a la invitación de la reunión
+        reunion.invitacion.agregarDepartamentos(departamento.getEmpleados());
+
         // Agregar empleados a la invitación de la reunión
-        reunion.invitacion.agregarEmpleados(empleado1);
-        reunion.invitacion.agregarEmpleados(empleado2);
         reunion.invitacion.agregarEmpleados(empleado3);
         reunion.invitacion.agregarEmpleados(empleado4);
         reunion.invitacion.agregarEmpleados(empleado5); // Laura será la ausente

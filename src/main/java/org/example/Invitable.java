@@ -1,8 +1,7 @@
 package org.example;
 
 /**
- * La interfaz {@code Invitable} define el comportamiento de los objetos 
- * que pueden recibir una invitación.
+ * La interfaz {@code Invitable} define los objetos que pueden recibir una invitación.
  */
 public interface Invitable {
 

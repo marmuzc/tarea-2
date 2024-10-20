@@ -3,7 +3,7 @@ package org.example;
 import java.time.Instant;
 
 /**
- * Clase que representa la asistencia de un empleado a una reunión.
+ * Clase que representa un empleado que asiste a la reunión.
  * Contiene información sobre el empleado y su hora de llegada.
  */
 public class Asistencia {
@@ -22,7 +22,7 @@ public class Asistencia {
     }
 
     /**
-     * Obtiene el empleado que ha asistido a la reunión.
+     * Devuelve el empleado que ha asistido a la reunión.
      * 
      * @return El empleado que asiste a la reunión.
      */
@@ -31,7 +31,7 @@ public class Asistencia {
     }
 
     /**
-     * Obtiene la hora de llegada del empleado.
+     * Devuelve la hora de llegada del empleado.
      * 
      * @return La hora de llegada del empleado.
      */

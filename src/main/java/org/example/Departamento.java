@@ -13,7 +13,7 @@ public class Departamento implements Invitable {
     private String nombre;
 
     /** Lista de empleados asociados al departamento (agregación). */
-    private List<Empleado> empleados;
+    private List<Invitable> empleados;
 
     /**
      * Crea una nueva instancia de {@code Departamento} con el nombre especificado.
@@ -39,7 +39,7 @@ public class Departamento implements Invitable {
      *
      * @return Una lista de empleados.
      */
-    public List<Empleado> getEmpleados() {
+    public List<Invitable> getEmpleados() {
         return empleados;
     }
 
@@ -77,7 +77,7 @@ public class Departamento implements Invitable {
     @Override
     public void invitar() {
         System.out.println("Se invitó a todos los empleados del departamento " + nombre);
-        for (Empleado empleado : empleados) {
+        for (Invitable empleado : empleados) {
             empleado.invitar();
         }
     }
