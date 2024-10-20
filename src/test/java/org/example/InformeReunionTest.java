@@ -2,11 +2,10 @@ package org.example;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
@@ -21,33 +20,31 @@ class InformeReunionTest {
     private String nombreArchivo;
 
     @BeforeEach
-    void setUp() throws ParseException {
-        // Crear una fecha utilizando SimpleDateFormat
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date fecha = sdf.parse("2021-09-30");
-
-        // Crear un Instant para la hora prevista
-        Instant horaPrevista = Instant.parse("2021-09-30T09:00:00Z");
-
-        // Crear una duración utilizando Duration
-        Duration duracionPrevista = Duration.ofMinutes(60);
+    void setUp() {
+        Date fechaReunion = new Date();
+        Instant horaPrevista = Instant.now().plus(Duration.ofHours(1)); // Hora prevista de la reunión (1 hora después del momento actual)
+        Duration duracionPrevista = Duration.ofHours(2); // Duración prevista de la reunión: 2 horas
+        Empleado organizador = new Empleado("12", "Pérez", "Tobias", "toperez@gmail.com");
 
         sala = "Sala 1";
         nombreArchivo = "informe.txt";
 
         // Inicializar el objeto que se va a probar antes de cada test
-        reunionPresencial = new ReunionPresencial(fecha, horaPrevista, duracionPrevista, sala);
+        reunionPresencial = new ReunionPresencial(fechaReunion, horaPrevista, duracionPrevista, tipoReunion.MARKETING, sala, organizador);
         informeReunion = new InformeReunion(reunionPresencial);
     }
 
     @Test
+    @DisplayName("Generar informe en formato TXT cuando todo está correcto")
     public void generarInformeTxt() {
-        // Act: ejecutar el método para generar el informe
         informeReunion.generarInformeTxt(nombreArchivo, sala);
 
         // Verificar que el archivo realmente se haya creado
         File file = new File(nombreArchivo);
         assertTrue(file.exists(), "El archivo de informe debería existir");
+
+        // Imprimir el estado del archivo
+        System.out.println("Test: Generar informe en formato TXT - El archivo de informe se ha creado correctamente.");
     }
 
     @AfterEach
@@ -56,31 +53,58 @@ class InformeReunionTest {
         File file = new File(nombreArchivo);
         if (file.exists()) {
             file.delete();
+            System.out.println("El archivo de informe ha sido eliminado después del test.");
         }
     }
 
     @Test
-    public void generarInformeTxtSinNombre() throws Exception {
-        // Act: intentar generar el informe con un nombre de archivo vacío
-        informeReunion.generarInformeTxt("", sala);
+    @DisplayName("Generar informe con enlace/sala nulo (si no se agrega enlace/sala)")
+    public void generarInformeTxtEnlaceSalaNull() {
+        // Act: generar informe con enlace de sala nulo
+        informeReunion.generarInformeTxt(nombreArchivo, null);
 
-        // Verificar que no se haya creado ningún archivo
-        File file = new File(""); // El archivo no debería existir
-        assertFalse(file.exists(), "No se debería haber creado ningún archivo con nombre vacío");
+        // Assert: verificar que el archivo se ha creado
+        File file = new File(nombreArchivo);
+        assertTrue(file.exists(), "El archivo de informe debería existir, incluso con enlace de sala nulo.");
+
+        // Imprimir el estado del archivo
+        System.out.println("Test: Generar informe con enlace de sala nulo - Archivo creado con valor por defecto para enlace de sala.");
     }
 
+
     @Test
-    public void generarInformeTxtSinEnlaceSala() throws Exception {
-        // Act: intentar generar el informe con un enlace de sala vacío
+    @DisplayName("Generar informe con enlace de sala vacío (se usa valor por defecto)")
+    public void generarInformeTxtSinEnlaceSala() {
+        // Act: generar informe con enlace de sala vacío
         informeReunion.generarInformeTxt(nombreArchivo, "");
 
-        // Verificar que el archivo realmente se haya creado
+        // Assert: verificar que el archivo se ha creado
         File file = new File(nombreArchivo);
-        assertTrue(file.exists(), "El archivo de informe debería existir");
+        assertTrue(file.exists(), "El archivo de informe debería existir, incluso con enlace de sala vacío.");
+
+        // Imprimir el estado del archivo
+        System.out.println("Test: Generar informe con enlace de sala vacío - Archivo creado con valor por defecto para enlace de sala.");
     }
+
 
     @Test
-    public void generarInformeTxtEnlaceSalaNull() throws Exception {
+    @DisplayName("No generar informe si el nombre del archivo está vacío")
+    public void generarInformeTxtSinNombre() {
+        // Eliminar cualquier archivo existente antes de ejecutar el test
+        File file = new File(nombreArchivo);
+        if (file.exists()) {
+            file.delete();
+        }
 
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            informeReunion.generarInformeTxt("", sala);
+        });
+
+        assertEquals("El nombre del archivo no puede estar vacío.", exception.getMessage());
+
+        // Verificar que no se haya creado ningún archivo después de lanzar la excepción
+        assertFalse(file.exists(), "No se debería haber creado ningún archivo con nombre vacío.");
+        System.out.println("Test: No generar informe si el nombre del archivo está vacío - Prueba completada con éxito.");
     }
+
 }

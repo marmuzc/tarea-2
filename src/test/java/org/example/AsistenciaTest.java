@@ -18,8 +18,8 @@ class AsistenciaTest {
         assertEquals(empleado, asistencia.getEmpleado(), "El empleado debería ser el mismo que se estableció en la asistencia");
         assertEquals(horaLlegada, asistencia.getHoraLlegada(), "La hora de llegada debería ser la misma que se estableció en la asistencia");
 
-        // Mensaje de éxito
-        System.out.println("testAsistenciaInicializacionCorrecta: Prueba completada con éxito.");
+        System.out.println("testAsistenciaInicializacionCorrecta: Empleado - " + asistencia.getEmpleado());
+        System.out.println("testAsistenciaInicializacionCorrecta: Hora de llegada - " + asistencia.getHoraLlegada());
     }
 
     @Test
@@ -31,8 +31,11 @@ class AsistenciaTest {
 
         assertNull(asistencia.getEmpleado(), "El empleado debería ser null si se pasó null en el constructor");
 
-        // Mensaje de éxito
-        System.out.println("testAsistenciaConEmpleadoNulo: Prueba completada con éxito.");
+        if (asistencia.getEmpleado() == null) {
+            System.out.println("testAsistenciaConEmpleadoNulo: El empleado es null.");
+        }
+
+        System.out.println("testAsistenciaConEmpleadoNulo: Hora de llegada - " + asistencia.getHoraLlegada());
     }
 
     @Test
@@ -44,12 +47,15 @@ class AsistenciaTest {
 
         assertNull(asistencia.getHoraLlegada(), "La hora de llegada debería ser null si se pasó null en el constructor");
 
-        // Mensaje de éxito
-        System.out.println("testAsistenciaConHoraLlegadaNula: Prueba completada con éxito.");
+        if (asistencia.getHoraLlegada() == null) {
+            System.out.println("testAsistenciaConHoraLlegadaNula: La hora de llegada es null.");
+        }
+
+        System.out.println("testAsistenciaConHoraLlegadaNula: Empleado - " + asistencia.getEmpleado());
     }
 
     @Test
-    @DisplayName("Test de asistencia para mas de un empleado")
+    @DisplayName("Test de asistencia para más de un empleado")
     void testAsistenciaDiferentesEmpleados() {
         Empleado empleado1 = new Empleado("1", "Perez del Campo", "Tobias", "toperez@gmail.com");
         Empleado empleado2 = new Empleado("2", "Lynch L", "Ross", "rosslynch@gmail.com");
@@ -61,7 +67,7 @@ class AsistenciaTest {
 
         assertNotEquals(asistencia1, asistencia2, "Las asistencias no deberían ser iguales");
 
-        // Mensaje de éxito
-        System.out.println("testAsistenciaDiferentesEmpleados: Prueba completada con éxito.");
+        System.out.println("testAsistenciaDiferentesEmpleados: Asistencia 1 - Empleado: " + asistencia1.getEmpleado() + ", Hora de llegada: " + asistencia1.getHoraLlegada());
+        System.out.println("testAsistenciaDiferentesEmpleados: Asistencia 2 - Empleado: " + asistencia2.getEmpleado() + ", Hora de llegada: " + asistencia2.getHoraLlegada());
     }
 }

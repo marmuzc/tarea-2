@@ -5,19 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b57d57-01cd-41c5-ab4c-fcb71ace2a60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/DepartamentoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/EmpleadoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitableTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitacionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/NotaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/RetrasoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InformeReunion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InformeReunion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Reunion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Reunion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ReunionPresencial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ReunionPresencial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ReunionVirtual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ReunionVirtual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InformeReunion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/InformeReunion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AsistenciaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AsistenciaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/DepartamentoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/DepartamentoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/EmpleadoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/EmpleadoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/InformeReunionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/InformeReunionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/InvitableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/InvitacionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitacionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/NotaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/NotaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/RetrasoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/RetrasoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ReunionPresencialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ReunionPresencialTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ReunionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ReunionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ReunionVirtualTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ReunionVirtualTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +48,14 @@
     "Application.Main.executor": "Run",
     "JUnit.AsistenciaTest.executor": "Run",
     "JUnit.DepartamentoTest.executor": "Run",
+    "JUnit.EmpleadoTest.executor": "Run",
     "JUnit.InformeReunionPresencialTest.executor": "Run",
     "JUnit.InformeReunionTest.executor": "Run",
     "JUnit.InformeReunionVirtualTest.executor": "Run",
+    "JUnit.InvitableTest.executor": "Run",
+    "JUnit.InvitacionTest.executor": "Run",
+    "JUnit.NotaTest.executor": "Run",
+    "JUnit.RetrasoTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -74,6 +79,26 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="TAREA-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
