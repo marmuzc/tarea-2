@@ -112,5 +112,10 @@ public class Main {
         // Duración real
         float duracionReal = reunion.calcularTiempoReal();
         System.out.println("\nDuración real de la reunión: " + duracionReal + " minutos");
+
+        //crear informe de reunion
+        InformeReunion informe = new InformeReunion(reunion);
+        informe.generarInformeTxt("InformeReunion.txt", "https://meet.google.com/abc-xyz");
+
     }
 }
