@@ -1,1 +1,2 @@
-# tarea-2
+Mariel Muñoz Castillo
+Jhostian San Martin Morales

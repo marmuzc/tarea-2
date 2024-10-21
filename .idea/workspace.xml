@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="22b57d57-01cd-41c5-ab4c-fcb71ace2a60" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AsistenciaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AsistenciaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/DepartamentoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/DepartamentoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/EmpleadoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/EmpleadoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/InformeReunionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/InformeReunionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/InvitableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/InvitacionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/InvitacionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/NotaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/NotaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/RetrasoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/RetrasoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ReunionPresencialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ReunionPresencialTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ReunionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ReunionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ReunionVirtualTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ReunionVirtualTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2neuTqYnQvbIc9f48xS5DpE9rfW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.AsistenciaTest.executor": "Run",
+    "JUnit.DepartamentoTest.addEmpleados.executor": "Run",
+    "JUnit.DepartamentoTest.executor": "Run",
+    "JUnit.EmpleadoTest.executor": "Run",
+    "JUnit.InformeReunionPresencialTest.executor": "Run",
+    "JUnit.InformeReunionTest.executor": "Run",
+    "JUnit.InformeReunionVirtualTest.executor": "Run",
+    "JUnit.InvitableTest.executor": "Run",
+    "JUnit.InvitacionTest.executor": "Run",
+    "JUnit.NotaTest.executor": "Run",
+    "JUnit.RetrasoTest.executor": "Run",
+    "JUnit.ReunionPresencialTest.executor": "Run",
+    "JUnit.ReunionPresencialTest.iniciar.executor": "Run",
+    "JUnit.ReunionPresencialTest.testIniciarReunionPresencial.executor": "Run",
+    "JUnit.ReunionTest.calcularTiempoReal.executor": "Run",
+    "JUnit.ReunionTest.executor": "Run",
+    "JUnit.ReunionTest.obtenerPorcentajeAsistencia.executor": "Run",
+    "JUnit.ReunionVirtualTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "test-unitarios",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ms_mc/Downloads/tarea-2",
+    "onboarding.tips.debug.path": "C:/Users/ms_mc/Downloads/TAREA 2/TAREA-2/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DepartamentoTest.addEmpleados" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TAREA-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.DepartamentoTest" />
+      <option name="METHOD_NAME" value="addEmpleados" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReunionPresencialTest.iniciar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TAREA-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ReunionPresencialTest" />
+      <option name="METHOD_NAME" value="iniciar" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReunionPresencialTest.testIniciarReunionPresencial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TAREA-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ReunionPresencialTest" />
+      <option name="METHOD_NAME" value="testIniciarReunionPresencial" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReunionTest.calcularTiempoReal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TAREA-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ReunionTest" />
+      <option name="METHOD_NAME" value="calcularTiempoReal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReunionTest.obtenerPorcentajeAsistencia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TAREA-2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ReunionTest" />
+      <option name="METHOD_NAME" value="obtenerPorcentajeAsistencia" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DepartamentoTest.addEmpleados" />
+        <item itemvalue="JUnit.ReunionPresencialTest.testIniciarReunionPresencial" />
+        <item itemvalue="JUnit.ReunionPresencialTest.iniciar" />
+        <item itemvalue="JUnit.ReunionTest.calcularTiempoReal" />
+        <item itemvalue="JUnit.ReunionTest.obtenerPorcentajeAsistencia" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22b57d57-01cd-41c5-ab4c-fcb71ace2a60" name="Changes" comment="" />
+      <created>1729345877595</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729345877595</updated>
+    </task>
+    <servers />
+  </component>
+</project>
