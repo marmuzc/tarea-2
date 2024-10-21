@@ -5,8 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Clase de prueba para la clase Nota.
+ * Contiene pruebas unitarias para los métodos de la clase Nota.
+ */
 class NotaTest {
 
+    /**
+     * Prueba que verifica la creación de una nota.
+     * Se asegura de que la nota no sea nula después de ser creada.
+     */
     @Test
     @DisplayName("Test de creación de nota")
     void crearNota() {
@@ -18,6 +26,10 @@ class NotaTest {
         System.out.println("Nota creada: " + nota.toString());
     }
 
+    /**
+     * Prueba que verifica la obtención del contenido de la nota.
+     * Se asegura de que el contenido sea el mismo que se estableció al crear la nota.
+     */
     @Test
     @DisplayName("Test de obtener contenido de la nota")
     void getContenido() {
@@ -29,6 +41,10 @@ class NotaTest {
         System.out.println("Contenido de la nota: " + nota.getContenido());
     }
 
+    /**
+     * Prueba que verifica el comportamiento cuando el contenido de la nota está vacío.
+     * Se asegura de que el contenido esté vacío.
+     */
     @Test
     @DisplayName("Test de contenido vacío en nota")
     void contenidoVacio() {
@@ -40,6 +56,10 @@ class NotaTest {
         System.out.println("Contenido de la nota: " + nota.getContenido());
     }
 
+    /**
+     * Prueba que verifica el comportamiento cuando el contenido de la nota es nulo.
+     * Se asegura de que el contenido sea nulo.
+     */
     @Test
     @DisplayName("Test de contenido nulo en nota")
     void contenidoNulo() {
@@ -50,6 +70,10 @@ class NotaTest {
         System.out.println("Contenido de la nota: " + nota.getContenido());
     }
 
+    /**
+     * Prueba que verifica el método toString de la nota.
+     * Se asegura de que el método toString devuelva el formato esperado.
+     */
     @Test
     @DisplayName("Test de toString de la nota")
     void testToString() {
@@ -57,7 +81,7 @@ class NotaTest {
         Nota nota = new Nota(contenido);
 
         String expectedString = "Nota{contenido='Contenido de prueba.'}";
-        assertEquals(expectedString, nota.toString(), "toStrinf de la nota debería coincidir con el formato esperado.");
+        assertEquals(expectedString, nota.toString(), "toString de la nota debería coincidir con el formato esperado.");
         System.out.println("testToString: Prueba completada con éxito.");
         System.out.println("toString de la nota: " + nota.toString());
     }

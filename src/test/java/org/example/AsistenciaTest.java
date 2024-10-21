@@ -7,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AsistenciaTest {
 
+    /**
+     * Test que verifica la correcta inicialización de un objeto Asistencia.
+     * Se asegura de que el empleado y la hora de llegada sean los mismos que se establecieron.
+     */
+
     @Test
     @DisplayName("Test de asistencia con todo correcto")
     void testAsistenciaInicializacionCorrecta() {
@@ -21,6 +26,11 @@ class AsistenciaTest {
         System.out.println("testAsistenciaInicializacionCorrecta: Empleado - " + asistencia.getEmpleado());
         System.out.println("testAsistenciaInicializacionCorrecta: Hora de llegada - " + asistencia.getHoraLlegada());
     }
+
+    /**
+     * Test que verifica el comportamiento de la clase Asistencia cuando el empleado es nulo.
+     * Se asegura de que el empleado sea null si se pasó null en el constructor.
+     */
 
     @Test
     @DisplayName("Test de asistencia sin empleado/empleado nulo")
@@ -38,6 +48,11 @@ class AsistenciaTest {
         System.out.println("testAsistenciaConEmpleadoNulo: Hora de llegada - " + asistencia.getHoraLlegada());
     }
 
+    /**
+     * Test que verifica el comportamiento de la clase Asistencia cuando la hora de llegada es nula.
+     * Se asegura de que la hora de llegada sea null si se pasó null en el constructor.
+     */
+
     @Test
     @DisplayName("Test de asistencia sin hora de llegada/hora de llegada nula")
     void testAsistenciaConHoraLlegadaNula() {
@@ -54,13 +69,17 @@ class AsistenciaTest {
         System.out.println("testAsistenciaConHoraLlegadaNula: Empleado - " + asistencia.getEmpleado());
     }
 
+    /**
+     * Test que verifica el comportamiento de la clase Asistencia cuando se registran dos empleados.
+     */
+
     @Test
     @DisplayName("Test de asistencia para más de un empleado")
     void testAsistenciaDiferentesEmpleados() {
         Empleado empleado1 = new Empleado("1", "Perez del Campo", "Tobias", "toperez@gmail.com");
         Empleado empleado2 = new Empleado("2", "Lynch L", "Ross", "rosslynch@gmail.com");
         Instant horaLlegada1 = Instant.now();
-        Instant horaLlegada2 = Instant.now().plusSeconds(3600); // 1 hora después
+        Instant horaLlegada2 = Instant.now().plusSeconds(3600);
 
         Asistencia asistencia1 = new Asistencia(empleado1, horaLlegada1);
         Asistencia asistencia2 = new Asistencia(empleado2, horaLlegada2);

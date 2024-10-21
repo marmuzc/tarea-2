@@ -12,6 +12,10 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Clase de prueba para la clase InformeReunion.
+ * Contiene pruebas unitarias para los métodos de generación de informes de la clase InformeReunion.
+ */
 class InformeReunionTest {
 
     private InformeReunion informeReunion;
@@ -19,6 +23,10 @@ class InformeReunionTest {
     private String sala;
     private String nombreArchivo;
 
+    /**
+     * Configuración inicial antes de cada prueba.
+     * Inicializa los objetos necesarios para las pruebas.
+     */
     @BeforeEach
     void setUp() {
         Date fechaReunion = new Date();
@@ -34,6 +42,10 @@ class InformeReunionTest {
         informeReunion = new InformeReunion(reunionPresencial);
     }
 
+    /**
+     * Prueba que verifica la generación de un informe en formato TXT cuando todos los parámetros son correctos.
+     * Se asegura de que el archivo de informe se cree correctamente.
+     */
     @Test
     @DisplayName("Generar informe en formato TXT cuando todo está correcto")
     public void generarInformeTxt() {
@@ -47,6 +59,10 @@ class InformeReunionTest {
         System.out.println("Test: Generar informe en formato TXT - El archivo de informe se ha creado correctamente.");
     }
 
+    /**
+     * Limpieza después de cada prueba.
+     * Elimina el archivo generado después de cada prueba.
+     */
     @AfterEach
     void tearDown() {
         // Eliminar el archivo generado después de cada prueba
@@ -57,6 +73,10 @@ class InformeReunionTest {
         }
     }
 
+    /**
+     * Prueba que verifica la generación de un informe cuando el enlace de la sala es nulo.
+     * Se asegura de que el archivo de informe se cree correctamente con un valor por defecto para el enlace de la sala.
+     */
     @Test
     @DisplayName("Generar informe con enlace/sala nulo (si no se agrega enlace/sala)")
     public void generarInformeTxtEnlaceSalaNull() {
@@ -71,7 +91,10 @@ class InformeReunionTest {
         System.out.println("Test: Generar informe con enlace de sala nulo - Archivo creado con valor por defecto para enlace de sala.");
     }
 
-
+    /**
+     * Prueba que verifica la generación de un informe cuando el enlace de la sala está vacío.
+     * Se asegura de que el archivo de informe se cree correctamente con un valor por defecto para el enlace de la sala.
+     */
     @Test
     @DisplayName("Generar informe con enlace de sala vacío (se usa valor por defecto)")
     public void generarInformeTxtSinEnlaceSala() {
@@ -86,7 +109,10 @@ class InformeReunionTest {
         System.out.println("Test: Generar informe con enlace de sala vacío - Archivo creado con valor por defecto para enlace de sala.");
     }
 
-
+    /**
+     * Prueba que verifica que no se genere un informe si el nombre del archivo está vacío.
+     * Se asegura de que se lance una excepción y no se cree ningún archivo.
+     */
     @Test
     @DisplayName("No generar informe si el nombre del archivo está vacío")
     public void generarInformeTxtSinNombre() {
@@ -106,5 +132,4 @@ class InformeReunionTest {
         assertFalse(file.exists(), "No se debería haber creado ningún archivo con nombre vacío.");
         System.out.println("Test: No generar informe si el nombre del archivo está vacío - Prueba completada con éxito.");
     }
-
 }

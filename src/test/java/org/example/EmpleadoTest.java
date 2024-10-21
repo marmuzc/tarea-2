@@ -5,8 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Clase de prueba para la clase Empleado.
+ * Contiene pruebas unitarias para los métodos getter y setter de la clase Empleado.
+ */
 class EmpleadoTest {
 
+    /**
+     * Prueba que verifica el getter y setter para el ID del empleado.
+     * Se asegura de que el ID se establezca y recupere correctamente.
+     */
     @Test
     @DisplayName("Test de obtener y establecer ID del empleado")
     void getSetId() {
@@ -19,6 +27,10 @@ class EmpleadoTest {
         System.out.println("getSetId: El ID actualizado es " + empleado.getId());
     }
 
+    /**
+     * Prueba que verifica el getter y setter para los apellidos del empleado.
+     * Se asegura de que los apellidos se establezcan y recuperen correctamente.
+     */
     @Test
     @DisplayName("Test de obtener y establecer apellidos del empleado")
     void getSetApellidos() {
@@ -31,6 +43,10 @@ class EmpleadoTest {
         System.out.println("getSetApellidos: Los apellidos actualizados son " + empleado.getApellidos());
     }
 
+    /**
+     * Prueba que verifica el getter y setter para el nombre del empleado.
+     * Se asegura de que el nombre se establezca y recupere correctamente.
+     */
     @Test
     @DisplayName("Test de obtener y establecer nombre del empleado")
     void getSetNombre() {
@@ -43,6 +59,10 @@ class EmpleadoTest {
         System.out.println("getSetNombre: El nombre actualizado es " + empleado.getNombre());
     }
 
+    /**
+     * Prueba que verifica el getter y setter para el correo del empleado.
+     * Se asegura de que el correo se establezca y recupere correctamente.
+     */
     @Test
     @DisplayName("Test de obtener y establecer correo del empleado")
     void getSetCorreo() {
@@ -55,6 +75,10 @@ class EmpleadoTest {
         System.out.println("getSetCorreo: El correo actualizado es " + empleado.getCorreo());
     }
 
+    /**
+     * Prueba que verifica la funcionalidad de invitar a un empleado.
+     * Se asegura de que el empleado pueda ser invitado correctamente.
+     */
     @Test
     @DisplayName("Test de invitar a un empleado")
     void invitar() {

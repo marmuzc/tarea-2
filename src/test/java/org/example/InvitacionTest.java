@@ -9,8 +9,16 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Clase de prueba para la clase ListaInvitacion.
+ * Contiene pruebas unitarias para los métodos de la clase ListaInvitacion.
+ */
 class InvitacionTest {
 
+    /**
+     * Prueba que verifica la funcionalidad de agregar empleados a la invitación.
+     * Se asegura de que los empleados se agreguen correctamente a la lista de invitados.
+     */
     @Test
     @DisplayName("Test de agregar empleados a la invitación")
     void agregarEmpleados() {
@@ -27,6 +35,10 @@ class InvitacionTest {
         System.out.println("Empleados agregados: " + empleado1.toString() + ", " + empleado2.toString());
     }
 
+    /**
+     * Prueba que verifica la funcionalidad de agregar departamentos a la invitación.
+     * Se asegura de que los departamentos se agreguen correctamente a la lista de invitados.
+     */
     @Test
     @DisplayName("Test de agregar departamentos a la invitación")
     void agregarDepartamentos() {
@@ -45,6 +57,10 @@ class InvitacionTest {
         System.out.println("Departamentos agregados: " + departamento1.toString() + ", " + departamento2.toString());
     }
 
+    /**
+     * Prueba que verifica la funcionalidad de enviar invitaciones.
+     * Se asegura de que las invitaciones se envíen correctamente.
+     */
     @Test
     @DisplayName("Test de enviar invitaciones")
     void sendInvitacion() {
@@ -58,6 +74,10 @@ class InvitacionTest {
         System.out.println("Invitación enviada a: " + empleado1.toString());
     }
 
+    /**
+     * Prueba que verifica la obtención del total de invitaciones.
+     * Se asegura de que el total de invitaciones sea el esperado.
+     */
     @Test
     @DisplayName("Test de obtener total de invitaciones")
     void totalInvitaciones() {
@@ -73,6 +93,10 @@ class InvitacionTest {
         System.out.println("Total de invitaciones: " + invitacion.totalInvitaciones());
     }
 
+    /**
+     * Prueba que verifica la obtención de la lista de invitados.
+     * Se asegura de que la lista de invitados sea la esperada.
+     */
     @Test
     @DisplayName("Test de obtener la lista de invitados")
     void getInvitados() {
@@ -87,6 +111,10 @@ class InvitacionTest {
         System.out.println("Invitados: " + invitados.toString());
     }
 
+    /**
+     * Prueba que verifica si un empleado está invitado.
+     * Se asegura de que el empleado esté en la lista de invitados.
+     */
     @Test
     @DisplayName("Test de verificar si un empleado está invitado")
     void esInvitado() {
@@ -99,6 +127,10 @@ class InvitacionTest {
         System.out.println("El empleado " + empleado1.toString() + " está invitado.");
     }
 
+    /**
+     * Prueba que verifica la obtención y establecimiento de la hora de la invitación.
+     * Se asegura de que la hora se establezca y recupere correctamente.
+     */
     @Test
     @DisplayName("Test de obtener y establecer la hora de la invitación")
     void getHoraYSetHora() {
