@@ -1,0 +1,28 @@
+=== Informe de la Reunión ===
+Fecha: 22:39:49 2024-10-20
+Hora Prevista: 23:39:49 2024-10-20
+Hora de Inicio: 22:39:49 2024-10-20
+Hora de Fin: 22:39:49 2024-10-20
+Duración Total: No disponible
+Duración Prevista: 120 minutos
+Porcentaje de Asistencia: 66.66667%
+Notas: No hay notas disponibles
+
+=== Asistentes ===
+Empleado {id='121', nombre='Ana', apellidos='Wato', correo='anawato@gmail.com'}
+Empleado {id='122', nombre='Carlos', apellidos='Sds', correo='carlos@gmail.com'}
+Empleado {id='123', nombre='Luisa', apellidos='Dsd', correo='luisa@gmail.com'}
+Empleado {id='124', nombre='David', apellidos='Tav', correo='david@gmail.com'}
+
+=== Retrasados ===
+Empleado {id='121', nombre='Ana', apellidos='Wato', correo='anawato@gmail.com'}
+Empleado {id='122', nombre='Carlos', apellidos='Sds', correo='carlos@gmail.com'}
+Empleado {id='123', nombre='Luisa', apellidos='Dsd', correo='luisa@gmail.com'}
+
+=== Ausentes ===
+Empleado {id='125', nombre='Laura', apellidos='Fer', correo='laura@gmail.com'}
+Empleado {id='126', nombre='tobi', apellidos='tobi', correo='tobi@gmail.com'}
+
+=== Nota ===
+No hay notas disponibles
+Enlace/Sala: Sala 101

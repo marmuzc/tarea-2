@@ -209,8 +209,8 @@ abstract class Reunion {
      * @return Duración real de la reunión en minutos.
      */
     public float calcularTiempoReal() {
-        if (horaFin != null && horarioInicio != null) {
-            Duration duration = Duration.between(horarioInicio, horaFin);
+        if (getHoraFin() != null && getHorarioInicio() != null) {
+            Duration duration = Duration.between(getHorarioInicio(), getHoraFin());
             return (float) duration.toMinutes();
         }
         return 0;
@@ -323,6 +323,8 @@ abstract class Reunion {
                 ", duracionPrevista=" + duracionPrevista.toMinutes() + " minutos" +
                 ", horarioInicio=" + horarioInicio +
                 ", horaFin=" + horaFin +
+                ", organizador= " + organizador +
+                ", tipoReunion= " + tipoReunion +
                 ", total de asistencias=" + obtenerTotalAsistencia() +
                 ", total de ausencias=" + obtenerAusencias().size() +
                 ", total de retrasos=" + obtenerRetrasos().size() +

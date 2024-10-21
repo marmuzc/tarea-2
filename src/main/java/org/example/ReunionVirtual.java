@@ -96,6 +96,9 @@ public class ReunionVirtual extends Reunion {
      */
     @Override
     public String toString() {
-        return super.toString() + ", enlace='" + enlace + '\'';
+        return super.toString() + 
+                ", enlace='" + enlace + '\''+
+                ", organizador=" + organizador.getNombre() +
+                ", tipoReunion=" + getTipo();
     }
 }

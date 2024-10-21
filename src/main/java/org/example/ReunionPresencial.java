@@ -98,6 +98,9 @@ public class ReunionPresencial extends Reunion {
     @Override
     public String toString() {
         // Llamamos al toString() de la clase padre y agregamos la información adicional de la sala
-        return super.toString() + ", sala='" + sala + '\'';
+        return super.toString() + 
+                ", sala='" + sala + '\''+
+                ", organizador=" + organizador.getNombre() +
+                ", tipoReunion=" + getTipo();
     }
 }
