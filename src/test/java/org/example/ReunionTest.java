@@ -18,7 +18,7 @@ class ReunionTest {
     Empleado empleado =  new Empleado("1", "Perez", "Juan", "jperez@gmail.com");
     Empleado empleado2 = new Empleado("3", "Lopez", "Carlos", "clopez@gmail.com");
     Empleado empleado3 = new Empleado("4", "Gomez", "Maria", "margome@gmail.com");
-    Invitacion invitacion;
+    ListaInvitacion invitacion;
     Nota nota = new Nota("Reunión de prueba: revisar el plan de marketing");
     tipoReunion tipo = tipoReunion.OTRO;
     Reunion reunion = new ReunionEjemplo(fechaReunion, horaPrevista, duracionPrevista, organizador);

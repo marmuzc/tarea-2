@@ -17,7 +17,7 @@ class ReunionPresencialTest {
     Empleado empleado =  new Empleado("1", "Perez", "Juan", "jperez@gmail.com");
     Empleado empleado2 = new Empleado("3", "Lopez", "Carlos", "clopez@gmail.com");
     Empleado empleado3 = new Empleado("4", "Gomez", "Maria", "margome@gmail.com");
-    Invitacion invitacion;
+    ListaInvitacion invitacion;
     tipoReunion tipo = tipoReunion.OTRO;
     String sala = "Sala 1";
     ReunionPresencial reunionPresencial = new ReunionPresencial(fechaReunion, horaPrevista, duracionPrevista, tipo, sala, organizador);

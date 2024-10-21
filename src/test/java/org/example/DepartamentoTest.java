@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DepartamentoTest {
+    private Empleado empleado;
 
     @Test
     @DisplayName("Test de agregar empleados al departamento")
@@ -19,7 +20,7 @@ class DepartamentoTest {
         assertEquals(2, departamento.obtenerCantidadEmpleados(), "Debería haber 2 empleados en el departamento");
 
         System.out.println("Empleados agregados:");
-        for (Empleado empleado : departamento.getEmpleados()) {
+        for (Invitable empleado : departamento.getEmpleados()) {
             System.out.println(empleado.toString());
         }
 
@@ -41,7 +42,7 @@ class DepartamentoTest {
         assertTrue(departamento.getEmpleados().contains(empleado2), "El departamento debería contener al empleado 2");
 
         System.out.println("Empleados obtenidos:");
-        for (Empleado empleado : departamento.getEmpleados()) {
+        for (Invitable empleado : departamento.getEmpleados()) {
             System.out.println(empleado.toString());
         }
 
@@ -81,7 +82,7 @@ class DepartamentoTest {
         departamento.invitar();
 
         System.out.println("Empleados invitados:");
-        for (Empleado empleado : departamento.getEmpleados()) {
+        for (Invitable empleado : departamento.getEmpleados()) {
             System.out.println(empleado.toString());
         }
 

@@ -14,7 +14,7 @@ class InvitacionTest {
     @Test
     @DisplayName("Test de agregar empleados a la invitación")
     void agregarEmpleados() {
-        Invitacion invitacion = new Invitacion(Instant.now());
+        ListaInvitacion invitacion = new ListaInvitacion(Instant.now());
         Invitable empleado1 = new Empleado("1", "Perez", "Tobias", "toperez@gmail.com");
         Invitable empleado2 = new Empleado("2", "Lynch", "Ross", "ross@gmail.com");
 
@@ -30,7 +30,7 @@ class InvitacionTest {
     @Test
     @DisplayName("Test de agregar departamentos a la invitación")
     void agregarDepartamentos() {
-        Invitacion invitacion = new Invitacion(Instant.now());
+        ListaInvitacion invitacion = new ListaInvitacion(Instant.now());
         List<Invitable> departamentos = new ArrayList<>();
         Invitable departamento1 = new Departamento("Marketing");
         Invitable departamento2 = new Departamento("Otro");
@@ -48,7 +48,7 @@ class InvitacionTest {
     @Test
     @DisplayName("Test de enviar invitaciones")
     void sendInvitacion() {
-        Invitacion invitacion = new Invitacion(Instant.now());
+        ListaInvitacion invitacion = new ListaInvitacion(Instant.now());
         Invitable empleado1 = new Empleado("1", "Perez", "Tobias", "toperez@gmail.com");
         invitacion.agregarEmpleados(empleado1);
 
@@ -61,7 +61,7 @@ class InvitacionTest {
     @Test
     @DisplayName("Test de obtener total de invitaciones")
     void totalInvitaciones() {
-        Invitacion invitacion = new Invitacion(Instant.now());
+        ListaInvitacion invitacion = new ListaInvitacion(Instant.now());
         Invitable empleado1 = new Empleado("1", "Perez", "Tobias", "toperez@gmail.com");
         Invitable empleado2 = new Empleado("2", "Lynch", "Ross", "rosslynch@gmail.com");
 
@@ -76,7 +76,7 @@ class InvitacionTest {
     @Test
     @DisplayName("Test de obtener la lista de invitados")
     void getInvitados() {
-        Invitacion invitacion = new Invitacion(Instant.now());
+        ListaInvitacion invitacion = new ListaInvitacion(Instant.now());
         Invitable empleado1 = new Empleado("1", "Perez", "Tobias", "toperez@gmail.com");
         invitacion.agregarEmpleados(empleado1);
 
@@ -90,7 +90,7 @@ class InvitacionTest {
     @Test
     @DisplayName("Test de verificar si un empleado está invitado")
     void esInvitado() {
-        Invitacion invitacion = new Invitacion(Instant.now());
+        ListaInvitacion invitacion = new ListaInvitacion(Instant.now());
         Invitable empleado1 = new Empleado("1", "Perez", "Tobias", "toperez@gmail.com");
         invitacion.agregarEmpleados(empleado1);
 
@@ -103,7 +103,7 @@ class InvitacionTest {
     @DisplayName("Test de obtener y establecer la hora de la invitación")
     void getHoraYSetHora() {
         Instant horaActual = Instant.now();
-        Invitacion invitacion = new Invitacion(horaActual);
+        ListaInvitacion invitacion = new ListaInvitacion(horaActual);
 
         assertEquals(horaActual, invitacion.getHora(), "La hora debería ser la misma que se estableció");
 
